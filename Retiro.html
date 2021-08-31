@@ -10,8 +10,6 @@
 </head>
 
 <body>
-    <br>
-    <br>
     <div class="container">
         <nav class="navbar navbar-light bg-light">
             <div class="container-fluid">
@@ -34,50 +32,72 @@
         <br>
         <br>
 
+    
     </div>
-    <div id="app" CLASS= text-center class="container ">
 
-        <h1 class= text-center >
-            <p class="text-success">RETIRAR</p>
+    <div id="app"class="container">
+            <h1 class=text-center>Retirar</h1>
+            <br>
+            <div class="container text-center">
+
+                <div class="form-check form-check-inline px-3">
+                    <input v-model="opcValor" @change="getValor" class="form-check-input h3" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">
+                    <label class="form-check-label h3" for="inlineRadio1">10.000</label>
+                </div>
+                <div class="form-check form-check-inline px-3">
+                    <input v-model="opcValor" @change="getValor" class="form-check-input h3" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2">
+                    <label class="form-check-label h3" for="inlineRadio2">20.000</label>
+                </div>
+                <div class="form-check form-check-inline px-3">
+                    <input v-model="opcValor" @change="getValor" class="form-check-input h3" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="3">
+                    <label class="form-check-label h3" for="inlineRadio3">50.000</label>
+                </div>
+                <div class="form-check form-check-inline px-3">
+                    <input v-model="opcValor" @change="getValor" class="form-check-input h3" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="4">
+                    <label class="form-check-label h3" for="inlineRadio3">100.000</label>
+                </div>
+                <div class="form-check form-check-inline px-3">
+                    <input v-model="opcValor" @change="getValor" class="form-check-input h3" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="5">
+                    <label class="form-check-label h3" for="inlineRadio3">Otro valor</label>
+                </div>
+                <div v-if="opcValor==5" class="input-group mb-3 ">
+                    <span class="input-group-text h2">$</span>
+                    <input v-model.number="valor" type="number" class="form-control h2" aria-label="Amount (to the nearest dollar)">
+                    <span class="input-group-text h2">.0</span>
+                </div>
+                <br>
+            </div>
+                <br>
+                <div class="container text-center">
+                    <button @click="procesar" class="btn btn-primary btn-lg col-8">Retirar</button>
+                </div>
             
-        </h1>
-        <br>
-        <br>
-        <div class="form-check form-check-inline px-3">
-            <input v-model="opcValor" @change="getValor" class="form-check-input h3" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">
-            <label class="form-check-label h3" for="inlineRadio1">10.000</label>
+            <br>
+            <br>
+            <h3 class="text-muted">Registro de movimientos</h3>
+    
+            <table class="table table-striped ">
+                <thead>
+                    <tr>
+                        <th scope="col">Valores</th>
+                    </tr>
+                </thead>
+                <tbody v-if="arrayValores.length">
+                    <tr v-for="item in arrayValores">
+                        <td v-text="item"></td>
+                    </tr>
+                </tbody>
+                <tbody v-else>
+                    <tr style="background-color: rgb(42, 142, 209)" class="text-white" align="center">
+                        <td>NO existen movimientos registrados</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <div class="form-check form-check-inline px-3">
-            <input v-model="opcValor" @change="getValor" class="form-check-input h3" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2">
-            <label class="form-check-label h3" for="inlineRadio2">20.000</label>
-        </div>
-        <div class="form-check form-check-inline px-3">
-            <input v-model="opcValor" @change="getValor" class="form-check-input h3" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="3">
-            <label class="form-check-label h3" for="inlineRadio3">50.000</label>
-        </div>
-        <div class="form-check form-check-inline px-3">
-            <input class="form-check-input h3" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
-            <label class="form-check-label h3" for="inlineRadio3">100.000</label>
-        </div>
-        <div class="form-check form-check-inline px-3">
-            <input class="form-check-input h3" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
-            <label class="form-check-label h3" for="inlineRadio3">Otro valor</label>
-        </div>
-        <div v-if="opcValor==5" class="input-group mb-3 ">
-            <span class="input-group-text h2">$</span>
-            <input v-model.number="valor" type="number" class="form-control h2" aria-label="Amount (to the nearest dollar)">
-            <span class="input-group-text h2">.0</span>
-        </div>
-        <br>
-        <br>
-        <br>
-
-        <button @click="procesar" class="btn btn-primary btn-lg col-6">Retirar</button>
-    </div>
 </body>
 
 <script src="js/Sources/vue.js"></script>
 <script src="js/Sources/sweetalert2.all.min.js"></script>
-<script src="js/appBancoSena.js"></script>
+<script src="js/appretiro.js"></script>
 
 </html>

@@ -5,7 +5,8 @@ app = new Vue({
         saldo: 500000,
         opcValor: 0,
         valor: 0,
-        arrayValores: []
+        arrayValores: [],
+
     },
     methods: {
         getValor() {
@@ -15,10 +16,10 @@ app = new Vue({
                 this.valor = 20000;
             } else if (this.opcValor == "3") {
                 this.valor = 50000;
-            }else if (this.opcValor == "4") {
+            } else if (this.opcValor == "4") {
                 this.valor = 100000;
-            }else if (this.opcValor == "5") {
-                this.valor = opcValor;
+            } else if (this.opcValor == "5") {
+                this.valor = 100000;
             }
         },
         validarSaldo() {
